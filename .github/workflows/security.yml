@@ -1,24 +1,36 @@
-name: Verification de securite
+name: Security checks
 
 on:
   push:
   pull_request:
 
 jobs:
-  bandit:
+  security:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Recuperer le code
+      - name: Recuperer le depot 
         uses: actions/checkout@v4
 
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
-      - name: Installer Bandit
-        run: pip install bandit
+      - name: Installer les dependances
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
-      - name: Analiser le code 
-        run: bandit -r . -ll
+      -name: Istaller Bandit
+       run: python -m pip install bandit
+
+      -name: Analyser le code avec Bandit
+       run: bandit -r . -x ./ .venv
+
+      -name: Installer pip-audit
+       run: python -m pip install pip-audit
+
+      -name: An alyser les dependances avec pip-audit
+       run: pip-audit
+
