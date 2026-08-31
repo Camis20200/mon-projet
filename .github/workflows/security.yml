@@ -25,10 +25,10 @@ jobs:
         run: python -m pip install bandit
 
       - name: Run Bandit
-        run: bandit -r . -x ./ .venv
+        run: bandit -r . -x .venv
 
-      -name: Install pip-audit
-       run: python -m pip install pip-audit
+      - name: Install pip-audit
+        run: python -m pip install pip-audit
 
-      -name: Run pip-audit
-       run: pip-audit 
+      - name: Run pip-audit
+        run: pip-audit -r requirements.txt 
