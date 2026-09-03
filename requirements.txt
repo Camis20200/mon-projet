@@ -1,1 +1,2 @@
 # Aucune dependance externe pour le moment
+requests==2.33.0
