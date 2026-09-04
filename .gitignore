@@ -2,3 +2,25 @@
 __pycache__/
 *.py[cod]
 .env
+# Environnement virtuel
+.venv/
+
+# Fichiers Python générés
+__pycache__/
+*.py[cod]
+
+# Cache des tests
+.pytest_cache/
+
+# Variables d'environnement et secrets
+.env
+.env.*
+!.env.example
+
+# Cache des tests
+.pytest_cache/
+
+# Variables d'environnement et secrets
+.env
+.env.*
+!.env.example
