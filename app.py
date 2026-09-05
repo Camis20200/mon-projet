@@ -1,7 +1,9 @@
-import os
+import os 
 
-Cami = input("Comment t'appelles-tu ? ")
-message = os.getenv("MESSAGE_SECRET" , "Bonjour")
-print(message + " " + Cami + " !") 
+def create_message(name):
+    message = os.getenv("MESSAGE_SECRET", "Bonjour")
+    return f"{message} {name} !"
 
-
+if __name__ == "__main__":
+    Cami = input("Comment t'appelles-tu ? ")
+    print(create_message(Cami))
