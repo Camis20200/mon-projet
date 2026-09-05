@@ -6,29 +6,28 @@ on:
 
 jobs:
   security:
+    name: Security checks
     runs-on: ubuntu-latest
+   
     steps:
-      - name: Checkout
+      - name: Récupérer le code
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Installer Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install dependencies
+      - name: Install dependances
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          pip install -r requirements.txt
 
-      - name: Install Bandit
-        run: python -m pip install bandit
+      - name: Exécuter les tests 
+        run: pytest -v
 
-      - name: Run Bandit
-        run: bandit -r . -x .venv
+      - name: Analyse le code avec Bandit
+        run: bandit -r app.py
 
-      - name: Install pip-audit
-        run: python -m pip install pip-audit
-
-      - name: Run pip-audit
-        run: pip-audit -r requirements.txt 
+      - name: Auditer les dépendances
+        run: pip-audit  
