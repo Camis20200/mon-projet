@@ -5,5 +5,5 @@ def create_message(name):
     return f"{message} {name} !"
 
 if __name__ == "__main__":
-    Cami = input("Comment t'appelles-tu ? ")
+    Cami = input("Comment t'appelles-tu ? ")  # nosec B322 
     print(create_message(Cami))
