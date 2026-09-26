@@ -1,5 +1,5 @@
 # Aucune dependance externe pour le moment
-requests==2.33.0
+requests==2.34.2
 pytest
 bandit
 pip-audit
